@@ -12,19 +12,32 @@ const DoctorGame = () => {
   };
 
   return (
-    <div className="min-h-screen px-4 py-24">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen px-4 py-24 relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-20 w-96 h-96 bg-red-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      </div>
+
+      <div className="max-w-4xl mx-auto relative z-10">
         <button
           onClick={() => navigate('/select')}
-          className="mb-8 text-gray-300 hover:text-white transition-colors duration-200 flex items-center"
+          className="mb-8 px-4 py-2 text-gray-300 hover:text-white transition-all duration-200 flex items-center gap-2 backdrop-blur-sm bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 group"
         >
-          ← Back to Simulations
+          <span className="transform group-hover:-translate-x-1 transition-transform duration-200">←</span>
+          Back to Simulations
         </button>
 
-        <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-8 shadow-xl">
+        <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-8 shadow-xl animate-fadeIn">
           <div className="text-center mb-8">
-            <div className="text-8xl mb-4">👨‍⚕️</div>
-            <h1 className="text-4xl font-bold text-white mb-4">The Healer</h1>
+            <div className="inline-block mb-4">
+              <div className="w-24 h-24 mx-auto bg-gradient-to-br from-red-500 to-pink-500 rounded-full flex items-center justify-center text-6xl shadow-lg shadow-red-500/50 animate-bounce">
+                👨‍⚕️
+              </div>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">
+              The Healer
+            </h1>
             <p className="text-xl text-gray-200 mb-6">
               Diagnose patients and make critical medical decisions in high-pressure situations
             </p>
@@ -32,62 +45,92 @@ const DoctorGame = () => {
 
           {!gameStarted ? (
             <div className="space-y-6">
-              <div className="backdrop-blur-sm bg-white/5 border border-white/10 rounded-xl p-6">
-                <h3 className="text-xl font-semibold text-white mb-3">What You'll Experience:</h3>
+              <div className="backdrop-blur-sm bg-gradient-to-br from-red-500/10 to-pink-500/10 border border-red-400/30 rounded-xl p-6 hover:border-red-400/50 transition-all duration-300">
+                <h3 className="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+                  <span className="text-2xl">🏥</span>
+                  What You'll Experience:
+                </h3>
                 <ul className="text-gray-200 space-y-2">
-                  <li>• Analyze patient symptoms and medical history</li>
-                  <li>• Make critical diagnoses under time pressure</li>
-                  <li>• Communicate with patients and families compassionately</li>
-                  <li>• Handle emergency medical situations</li>
-                  <li>• Apply medical knowledge to real-world scenarios</li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-pink-400 mt-1">▸</span>
+                    <span>Analyze patient symptoms and medical history</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-pink-400 mt-1">▸</span>
+                    <span>Make critical diagnoses under time pressure</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-pink-400 mt-1">▸</span>
+                    <span>Communicate with patients and families compassionately</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-pink-400 mt-1">▸</span>
+                    <span>Handle emergency medical situations</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-pink-400 mt-1">▸</span>
+                    <span>Apply medical knowledge to real-world scenarios</span>
+                  </li>
                 </ul>
               </div>
 
               <div className="backdrop-blur-sm bg-white/5 border border-white/10 rounded-xl p-6">
-                <h3 className="text-xl font-semibold text-white mb-3">Skills You'll Develop:</h3>
+                <h3 className="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+                  <span className="text-2xl">🌟</span>
+                  Skills You'll Develop:
+                </h3>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-4 py-2 bg-purple-500/30 border border-purple-400/50 rounded-lg text-white text-sm">
-                    Critical Thinking
+                  <span className="px-4 py-2 bg-gradient-to-r from-red-500/30 to-pink-500/30 border border-red-400/50 rounded-lg text-white text-sm hover:scale-105 transition-transform duration-200 cursor-default">
+                    🧠 Critical Thinking
                   </span>
-                  <span className="px-4 py-2 bg-purple-500/30 border border-purple-400/50 rounded-lg text-white text-sm">
-                    Decision Making
+                  <span className="px-4 py-2 bg-gradient-to-r from-red-500/30 to-pink-500/30 border border-red-400/50 rounded-lg text-white text-sm hover:scale-105 transition-transform duration-200 cursor-default">
+                    ⚡ Decision Making
                   </span>
-                  <span className="px-4 py-2 bg-purple-500/30 border border-purple-400/50 rounded-lg text-white text-sm">
-                    Empathy
+                  <span className="px-4 py-2 bg-gradient-to-r from-red-500/30 to-pink-500/30 border border-red-400/50 rounded-lg text-white text-sm hover:scale-105 transition-transform duration-200 cursor-default">
+                    💝 Empathy
                   </span>
-                  <span className="px-4 py-2 bg-purple-500/30 border border-purple-400/50 rounded-lg text-white text-sm">
-                    Attention to Detail
+                  <span className="px-4 py-2 bg-gradient-to-r from-red-500/30 to-pink-500/30 border border-red-400/50 rounded-lg text-white text-sm hover:scale-105 transition-transform duration-200 cursor-default">
+                    🔍 Attention to Detail
                   </span>
-                  <span className="px-4 py-2 bg-purple-500/30 border border-purple-400/50 rounded-lg text-white text-sm">
-                    Stress Management
+                  <span className="px-4 py-2 bg-gradient-to-r from-red-500/30 to-pink-500/30 border border-red-400/50 rounded-lg text-white text-sm hover:scale-105 transition-transform duration-200 cursor-default">
+                    😌 Stress Management
                   </span>
                 </div>
               </div>
 
               <button
                 onClick={startSimulation}
-                className="w-full py-4 bg-purple-500 hover:bg-purple-600 text-white text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg"
-                style={{ backgroundColor: '#A855F7' }}
+                className="w-full py-4 bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/50"
               >
-                Start Simulation
+                Start Simulation →
               </button>
             </div>
           ) : (
             <div className="text-center py-12">
-              <div className="text-6xl mb-4">🎮</div>
+              <div className="text-6xl mb-4 animate-bounce">🎮</div>
               <h2 className="text-2xl font-bold text-white mb-4">Loading Simulation...</h2>
-              <p className="text-gray-300">
+              <p className="text-gray-300 mb-8">
                 The game simulation will be embedded here when your game is ready!
               </p>
-              <div className="mt-8 p-8 bg-purple-500/10 border-2 border-dashed border-purple-400/50 rounded-xl">
-                <p className="text-purple-300 font-mono text-sm">
-                  Game Integration Point - Connect your Unity/Godot/Web game here
+              <div className="mt-8 p-8 bg-gradient-to-br from-red-500/10 to-pink-500/10 border-2 border-dashed border-red-400/50 rounded-xl">
+                <p className="text-red-300 font-mono text-sm">
+                  🔌 Game Integration Point - Connect your Unity/Godot/Web game here
                 </p>
               </div>
             </div>
           )}
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.8s ease-out;
+        }
+      `}</style>
     </div>
   );
 };

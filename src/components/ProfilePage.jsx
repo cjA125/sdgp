@@ -1,4 +1,5 @@
 import React from 'react';
+import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer, Tooltip } from 'recharts';
 
 const ProfilePage = () => {
   const achievements = [
@@ -12,6 +13,16 @@ const ProfilePage = () => {
     { name: 'Problem Solving', percentage: 72, color: 'from-purple-500 to-pink-500' },
     { name: 'Leadership', percentage: 68, color: 'from-orange-500 to-red-500' },
     { name: 'Creativity', percentage: 91, color: 'from-green-500 to-emerald-500' }
+  ];
+
+  // Radar chart data
+  const radarData = [
+    { skill: 'Communication', value: 85, fullMark: 100 },
+    { skill: 'Problem Solving', value: 72, fullMark: 100 },
+    { skill: 'Leadership', value: 68, fullMark: 100 },
+    { skill: 'Creativity', value: 91, fullMark: 100 },
+    { skill: 'Teamwork', value: 78, fullMark: 100 },
+    { skill: 'Critical Thinking', value: 82, fullMark: 100 }
   ];
 
   return (
@@ -92,17 +103,39 @@ const ProfilePage = () => {
               </h2>
               <p className="text-gray-300 mb-8">Track your progress across different skill areas</p>
               
-              {/* Radar Chart Placeholder */}
-              <div className="bg-gradient-to-br from-white/5 to-white/10 border border-white/10 rounded-lg p-12 mb-8 relative overflow-hidden group">
+              {/* Radar Chart */}
+              <div className="bg-gradient-to-br from-white/5 to-white/10 border border-white/10 rounded-lg p-8 mb-8 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="text-center relative z-10">
-                  <div className="text-6xl mb-4 animate-bounce">�</div>
-                  <p className="text-gray-200 text-lg font-semibold">
-                    Skill Radar Chart
-                  </p>
-                  <p className="text-gray-400 text-sm mt-2">
-                    Complete simulations to unlock your detailed skill profile
-                  </p>
+                <div className="relative z-10">
+                  <ResponsiveContainer width="100%" height={400}>
+                    <RadarChart data={radarData}>
+                      <PolarGrid stroke="#ffffff20" />
+                      <PolarAngleAxis 
+                        dataKey="skill" 
+                        tick={{ fill: '#e5e7eb', fontSize: 12 }}
+                      />
+                      <PolarRadiusAxis 
+                        angle={90} 
+                        domain={[0, 100]}
+                        tick={{ fill: '#9ca3af', fontSize: 10 }}
+                      />
+                      <Radar
+                        name="Skills"
+                        dataKey="value"
+                        stroke="#A855F7"
+                        fill="#A855F7"
+                        fillOpacity={0.6}
+                      />
+                      <Tooltip 
+                        contentStyle={{
+                          backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                          border: '1px solid rgba(255, 255, 255, 0.2)',
+                          borderRadius: '8px',
+                          color: 'white'
+                        }}
+                      />
+                    </RadarChart>
+                  </ResponsiveContainer>
                 </div>
               </div>
               

@@ -6,9 +6,15 @@ A modern, futuristic web application that helps users discover their ideal caree
 
 - **Modern Glassmorphism UI**: Beautiful frosted glass design with purple accents
 - **Career Simulations**: Interactive games for Teacher, Doctor, and Lawyer professions
-- **Skill Tracking**: Profile page to track your progress and developed skills
+- **Skill Tracking**: Profile page with interactive radar chart to track your progress
 - **Responsive Design**: Works seamlessly on desktop and mobile devices
 - **React Router**: Smooth navigation between pages
+- **Authentication System**: Login/Signup pages ready for Firebase integration
+- **Achievements**: Unlock badges and earn points as you complete simulations
+- **Career Recommendations**: AI-powered career suggestions based on your performance
+- **Animated UI**: Smooth animations powered by Framer Motion
+- **Interactive Charts**: Skill visualization using Recharts
+- **Celebration Effects**: Confetti animations for achievements
 
 ## 🚀 Tech Stack
 
@@ -16,40 +22,50 @@ A modern, futuristic web application that helps users discover their ideal caree
 - **Vite** - Build tool and dev server
 - **Tailwind CSS** - Utility-first CSS framework
 - **React Router DOM** - Client-side routing
+- **Recharts** - Interactive skill radar charts
+- **Framer Motion** - Smooth animations
+- **React Confetti** - Celebration effects
+- **Firebase** - Authentication (ready to integrate)
 - **Google Fonts (Inter)** - Modern typography
 
 ## 📦 Installation
 
 1. Install dependencies:
+
 ```bash
 npm install
 ```
 
-2. Start the development server:
+1. Start the development server:
+
 ```bash
 npm run dev
 ```
 
-3. Open your browser and visit: `http://localhost:3000`
+1. Open your browser and visit: `http://localhost:3000`
 
 ## 🎮 Connecting Your Game Simulations
 
 The website is ready to connect with your game simulations! Here's how:
 
-### For Unity Games:
+### For Unity Games
+
 1. Build your Unity game for WebGL
 2. Place the build files in the `public/games/` folder
 3. Update the game component files to load your Unity game
 
-### For Web-based Games:
+### For Web-based Games
+
 1. Add your game files to the project
 2. Import and render them in the respective game component:
    - `src/components/TeacherGame.js`
    - `src/components/DoctorGame.js`
    - `src/components/LawyerGame.js`
 
-### Integration Points:
+### Integration Points
+
 Each game page has a placeholder marked with:
+
 ```javascript
 // TODO: Connect to actual game simulation here
 ```
@@ -58,20 +74,23 @@ Replace the alert/placeholder with your actual game loading logic.
 
 ## 📁 Project Structure
 
-```
+```text
 sdgpweb/
 ├── src/
 │   ├── components/
-│   │   ├── LandingPage.js      # Homepage
-│   │   ├── GameSelectionPage.js # Choose simulation
-│   │   ├── ProfilePage.js       # User progress
-│   │   ├── Navbar.js            # Navigation
-│   │   ├── TeacherGame.js       # Teacher simulation
-│   │   ├── DoctorGame.js        # Doctor simulation
-│   │   └── LawyerGame.js        # Lawyer simulation
-│   ├── App.js                   # Main app component
-│   ├── main.jsx                 # Entry point
-│   └── index.css                # Global styles
+│   │   ├── LandingPage.jsx         # Homepage
+│   │   ├── GameSelectionPage.jsx   # Choose simulation
+│   │   ├── ProfilePage.jsx         # User progress with radar chart
+│   │   ├── Navbar.jsx              # Navigation
+│   │   ├── AuthPage.jsx            # Login/Signup
+│   │   ├── AchievementsPage.jsx    # Badges and points
+│   │   ├── CareerRecommendations.jsx # Career suggestions
+│   │   ├── TeacherGame.jsx         # Teacher simulation
+│   │   ├── DoctorGame.jsx          # Doctor simulation
+│   │   └── LawyerGame.jsx          # Lawyer simulation
+│   ├── App.jsx                     # Main app component
+│   ├── main.jsx                    # Entry point
+│   └── index.css                   # Global styles
 ├── index.html
 ├── package.json
 ├── vite.config.js
@@ -106,11 +125,13 @@ sdgpweb/
 To deploy your website:
 
 1. Build the project:
+
 ```bash
 npm run build
 ```
 
-2. Deploy the `dist` folder to:
+1. Deploy the `dist` folder to:
+
    - Vercel
    - Netlify
    - GitHub Pages
@@ -122,4 +143,4 @@ This project is ready for your game integration!
 
 ---
 
-**Created with ❤️ for VocaLens**
+Created with ❤️ for VocaLens

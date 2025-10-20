@@ -7,6 +7,9 @@ import ProfilePage from './components/ProfilePage.jsx';
 import TeacherGame from './components/TeacherGame.jsx';
 import DoctorGame from './components/DoctorGame.jsx';
 import LawyerGame from './components/LawyerGame.jsx';
+import AuthPage from './components/AuthPage.jsx';
+import AchievementsPage from './components/AchievementsPage.jsx';
+import CareerRecommendations from './components/CareerRecommendations.jsx';
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
           <Route path="/game/teacher" element={<TeacherGame />} />
           <Route path="/game/doctor" element={<DoctorGame />} />
           <Route path="/game/lawyer" element={<LawyerGame />} />
+          <Route path="/auth" element={<AuthPage />} />
+          <Route path="/achievements" element={<AchievementsPage />} />
+          <Route path="/recommendations" element={<CareerRecommendations />} />
         </Routes>
       </div>
     </BrowserRouter>
